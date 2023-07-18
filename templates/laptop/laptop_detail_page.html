@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Detailing is Laptop
+{% endblock %}
+{% block content %}
+<div class="containers p-5">
+    <div class="buttons">
+        <a href="{% url 'index' %}">
+            <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-left-long"></i> Go Back
+            </button>
+        </a>
+        <a href="{% url 'laptop_update_page' laptop.0.pk %}">
+
+            <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-pen-to-square"></i> Update
+            </button>
+        </a>
+        <a href="{% url 'laptop_delete_page' laptop.0.pk %}">
+            <button type="button" class="btn btn-danger">
+                <i class="fa-solid fa-trash-can"></i> Delete
+            </button>
+        </a>
+    </div>
+    <div class="detail">
+        <div class="image">
+            {% if laptop.0.image %}
+            <img src="{{ laptop.0.image.url }}" width="100%" alt="">
+            {% endif %}
+        </div>
+        <div class="laptop_infor">
+            <div class="infor">
+                <p>Title:</p>
+                <p>{{laptop.0.title}}</p>
+            </div>
+            <div class="infor">
+                <p>Author:</p>
+                <p>{{laptop.0.author}}</p>
+            </div>
+            <div class="infor">
+                <p>Price:</p>
+                <p>$ {{laptop.0.price}}</p>
+            </div>
+            <div class="infor">
+                <p>Category:</p>
+                <p>{{laptop.0.category}}</p>
+            </div>
+            <div class="infor">
+                <p>Color:</p>
+                <p>{{laptop.0.color}}</p>
+            </div>
+            <div class="infor">
+                <p>Led Panel:</p>
+                <p>{{laptop.0.led_panel}}</p>
+            </div>
+            <div class="infor">
+                <p>Memory:</p>
+                <p>{{laptop.0.memory}}</p>
+            </div>
+            <div class="infor">
+                <p>RAM:</p>
+                <p>{{laptop.0.ram}}</p>
+            </div>
+            <div class="infor">
+                <p>Processor:</p>
+                <p>{{laptop.0.processor}}</p>
+            </div>
+            <div class="infor">
+                <p>Video Card:</p>
+                <p>{{laptop.0.video_card}}</p>
+            </div>
+            <div class="infor">
+                <p>Keyboard:</p>
+                <p>{{laptop.0.keyboard}}</p>
+            </div>
+            <div class="infor">
+                <p>Battery:</p>
+                <p>{{laptop.0.battery}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% for i in laptops %}
+        {% if i.category == laptop.0.category %}
+        <div class="card_grid">
+            <a href="{% url 'laptop_detail_page' i.pk %}">
+                {% if laptop.0.image %}
+                    <img src="{{ i.image.url }}" width="100%" height="200px" alt="">
+                {% endif %}
+            </a>
+            <div class="card-text">
+                <a href="#">
+                    <h3 class="text-warning text-center fs-4">{{i.title}}</h3>
+                </a>
+                <p class="text-danger text-center fs-4">$ {{i.price}}</p>
+            </div>
+            <div class="buttons">
+                <button type="button" class="btn btn-primary">
+                    <i class="fa-solid fa-cart-shopping"></i> Add To Card
+                </button>
+                <button type="button" class="btn btn-primary">
+                    <i class="fa-solid fa-heart"></i></button>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

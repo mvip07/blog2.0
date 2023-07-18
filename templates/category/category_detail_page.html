@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Detailing is Category
+{% endblock %}
+{% block content %}
+<div class="containers p-5">
+    <div class="buttons">
+        <a href="{% url 'index' %}">
+            <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-left-long"></i> Go Back
+            </button>
+        </a>
+        <a href="{% url 'category_update_page' category.pk %}">
+            
+            <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-pen-to-square"></i> Update
+            </button>
+        </a>
+        <a href="{% url 'category_delete_page' category.pk %}">
+            <button type="button" class="btn btn-danger">
+                <i class="fa-solid fa-trash-can"></i> Delete
+            </button>
+        </a>
+    </div>
+    <div class="detail">
+        <div class="laptop_infor">
+            <div class="infor">
+                <p>Title:</p>
+                <p>{{post.title}}</p>
+            </div>
+            <div class="infor">
+                <p>Decsciption:</p>
+                <p>{{post.decsciption}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

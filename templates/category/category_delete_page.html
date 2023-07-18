@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+Deleting is Category
+{% endblock %}
+{% block content %}
+<div class="containers mt-5">
+    <form action="#" method="post">{% csrf_token %}
+        <h1>Category Delete</h1>
+        <p>After deleting a category, you can't restore it!</p>
+        {{form.as_p}}
+        <div class="d-flex">
+            <div class="w-100">
+                <a href="{% url 'category_detail_page' category.pk %}" class="btn w-100" style="height: 50px;
+                border: none;
+                color: #fff;
+                font-size: 20px;
+                border-radius: 10px;
+                background: rgb(3, 246, 3);">
+                    <i class="fa-solid fa-left-long"></i> Go Back
+                </a>
+            </div>
+            <div class="w-100">
+                <input type="submit" value="Delete">
+            </div>
+        </div>
+
+    </form>
+</div>
+{% endblock content %}

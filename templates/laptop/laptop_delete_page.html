@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+Deleting is Laptop
+{% endblock %}
+{% block content %}
+<div class="containers mt-5">
+    <form action="#" method="post">{% csrf_token %}
+        <h1>Delete Laptop</h1>
+        <p>After deleting a post, you can't restore it!</p>
+        {{form.as_p}}
+        <div class="d-flex">
+            <div class="w-100">
+                <a href="{% url 'laptop_detail_page' laptop.pk %}" class="btn w-100" style="height: 50px;
+                border: none;
+                color: #fff;
+                font-size: 20px;
+                border-radius: 10px;
+                background: rgb(3, 246, 3);">
+                    <i class="fa-solid fa-left-long"></i> Go Back
+                </a>
+            </div>
+            <div class="w-100">
+                <input type="submit" value="Delete">
+            </div>
+        </div>
+
+    </form>
+</div>
+{% endblock content %}

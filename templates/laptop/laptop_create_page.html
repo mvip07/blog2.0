@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Creating is Laptop
+{% endblock %}
+{% block content %}
+<div class="containers mt-5">
+    <div class="card-text">
+        <form action="#`" method="post">{% csrf_token %}
+            <a href="{% url 'index' %}">
+                <button type="button" class="btn btn-primary">
+                    <i class="fa-solid fa-left-long"></i> Go Back
+                </button>
+            </a>
+            <h1>Laptop Create</h1>
+            {{ form.as_p }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+Log Out
+{% endblock %}
+{% block content %}
+<form  class="mt-5" method="post">{% csrf_token %}
+    <h1>Sign Up</h1>
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="Sign Up" />
+</form>
+{% endblock content %}

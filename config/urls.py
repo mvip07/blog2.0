@@ -23,13 +23,14 @@ from .views import homeView, aboutView, blogView, contactView
 
 
 urlpatterns = [
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('', homeView.as_view(), name='index'),
     path('about/', aboutView.as_view(), name='about'),
-    path('blog/', homeView.as_view(), name='blog'),
-    path('contact/', homeView.as_view(), name='contact'),
+    path('blog/', blogView.as_view(), name='blog'),
+    path('contact/', contactView.as_view(), name='contact'),
     path('laptop/', include('laptop.urls')),
     path('category/', include('category.urls')),
 

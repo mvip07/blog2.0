@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 # Create your models here.
 from django.db import models
 from django.urls import reverse
@@ -8,7 +9,7 @@ from django.urls import reverse
 
 class Laptop (models.Model):
 
-    title = models.CharField(
+    title = RichTextField(
         default=0,
         null=False,
         blank=False,

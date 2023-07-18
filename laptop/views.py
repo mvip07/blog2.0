@@ -37,7 +37,7 @@ class laptopUpdateView(UpdateView):
     model = Laptop
     template_name = 'laptop/laptop_update_page.html'
     fields = ['title', 'image', 'author', 'price', 'category', 'count', 'price', 'color', 'led_panel', 'processor', 'video_card', 'memory', 'ram', 'keyboard', 'battery']
-    success_url = '/laptop'
+    success_url = '/'
 
 class laptopDeleteView(DeleteView):
     model = Laptop
